@@ -51,11 +51,11 @@ tmux_conf_theme_window_bg='default'
 # highlight focused pane (tmux >= 2.1), possible values are:
 #   - true
 #   - false (default)
-tmux_conf_theme_highlight_focused_pane=false
+tmux_conf_theme_highlight_focused_pane=true
 
 # focused pane colours:
 tmux_conf_theme_focused_pane_fg='default'
-tmux_conf_theme_focused_pane_bg='#0087d7'               # light blue
+tmux_conf_theme_focused_pane_bg='#171717'               # dark gray
 
 # pane border style, possible values are:
 #   - thin (default)
@@ -179,8 +179,9 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_left=' ❐ #S '
+tmux_conf_theme_status_right='#{prefix}#{pairing}#{synchronized} | #{username}#{root}@#{hostname} | ↑#{?uptime_y, #{uptime_y}y,}#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} | #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b '
+
 
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
@@ -188,8 +189,8 @@ tmux_conf_theme_status_left_bg='#ffff00,#ff00af,#00afff'  # yellow, pink, white 
 tmux_conf_theme_status_left_attr='bold,none,none'
 
 # status right style
-tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#000000' # light gray, white, black
-tmux_conf_theme_status_right_bg='#080808,#d70000,#e4e4e4' # dark gray, red, white
+tmux_conf_theme_status_right_fg='#8a8a8a,#e4e4e4,#e4e4e4,#000000' # light gray, white, white, black
+tmux_conf_theme_status_right_bg='#080808,#080808,#080808,#e4e4e4' # dark gray, dark gray, dark gray, white
 tmux_conf_theme_status_right_attr='none,none,bold'
 
 # pairing indicator
@@ -275,10 +276,10 @@ tmux_conf_copy_to_os_clipboard=false
 # this is the place to override or undo settings
 
 # increase history size
-#set -g history-limit 10000
+set -g history-limit 10000
 
 # start with mouse mode enabled
-#set -g mouse on
+set -g mouse on
 
 # force Vi mode
 #   really you should export VISUAL or EDITOR environment variable, see manual
@@ -293,4 +294,4 @@ tmux_conf_copy_to_os_clipboard=false
 # bind C-a send-prefix
 
 # move status line to top
-#set -g status-position top
+set -g status-position top
